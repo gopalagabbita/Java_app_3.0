@@ -100,7 +100,7 @@ pipeline{
             }
         }
           stage('Pushing JFrog file '){
-            when { expression { param.action == 'create' } }
+            when { expression { params.action == 'create' } }
                steps {
                 script{
                     sh 'curl -X PUT -u admin:Admin123 -T  /var/lib/jenkins/workspace/java-3.0/target/kubernetes-configmap-reload-0.0.3-SNAPSHOT.jar "http://52.91.67.213:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.3-SNAPSHOT.jar"'
