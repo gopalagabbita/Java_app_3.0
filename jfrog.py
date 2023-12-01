@@ -29,3 +29,9 @@ except subprocess.CalledProcessError as e:
 def main():
     mvnBuild()
     jfrogUpload()
+
+########################
+
+if ___name___ == "__main__":
+    main()
+
