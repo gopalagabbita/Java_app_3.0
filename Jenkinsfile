@@ -90,6 +90,14 @@ pipeline{
                }
             }
         }
+          stage('Pushing JFrog file '){
+            when { expression { param.action == 'create' }}
+               steps {
+                script{
+                    sh 'curl -X PUT -u admin:Admin123 -T /var/lib/jenkins/workspace/java-3.0/target/kubernetes-configmap-reload-0.0.3-SNAPSHOT.jar "http://18.209.178.226:8082/artifactory/example-repo-local/kubernetes-configmap-reload-0.0.3-SNAPSHOT.jar"'
+                }
+               }
+          }
         stage('Docker Image Push : DockerHub '){
          when { expression {  params.action == 'create' } }
             steps{
