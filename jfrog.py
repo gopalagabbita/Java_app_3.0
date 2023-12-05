@@ -22,6 +22,7 @@ def mvnBuild():
    maven_command = "mvn clean install -DskipTests"
 
 try:
+    subprocess.run(maven_command, check=True, text=True, shell=True)   
     print("\nMaven build completed succesfully.")
 except subprocess.CalledProcessError as e:
        print(f"Error: Maven build failed with exit code (e.returncode)")
